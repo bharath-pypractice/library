@@ -1,0 +1,49 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Books</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/allbooks.css' %}">
+</head>
+<body>
+    <h1>Library Books</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Author Name</th>
+                <th>Department Name</th>
+                <th>Count</th>
+                <th>Action</th> <!-- New column for update button -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.book_name }}</td>
+                <td>{{ book.author_name }}</td>
+                <td>{{ book.department_name }}</td>
+                <td>{{ book.count }}</td>
+                <td><a href="{% url 'update_book' book.id %}"class="update">Update</a></td> <!-- Update button -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Add New Book</h2>
+    <form method="post" action="{% url 'library_books' %}">
+        {% csrf_token %}
+        <label for="book_name">Book Name:</label><br>
+        <input type="text" id="book_name" name="book_name"><br>
+        <label for="author_name">Author Name:</label><br>
+        <input type="text" id="author_name" name="author_name"><br>
+        <label for="department_name">Department Name:</label><br>
+        <input type="text" id="department_name" name="department_name"><br>
+        <label for="count">Count:</label><br>
+        <input type="number" id="count" name="count"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Register</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/student_register.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <form method="POST" action="{% url 'student_register' %}">
+            <h3>student register</h3>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">Submit</button>
+        </form>        
+    </div>
+    <div class="container1">
+        <h5>if already registered</h5>
+        <h5>You want to login here...👇🏻</h5>
+        <a href="{% url 'student_login_url' %}">Login Student</a>
+    </div>
+</body>
+</html>

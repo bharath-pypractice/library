@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrations</title>
+    <!-- Add your CSS link or styles here -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aandrej.css' %}">
+</head>
+<body>
+
+<table id="registrations-table">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for registration in registrations %}
+        <tr id="registration-row-{{ registration.id }}">
+            <td>{{ registration.student_id }}</td>
+            <td>{{ registration.student_name }}</td>
+            <td>
+                <a href="{% url 'approveorg' %}" class="approve-btn" onclick="changeActionText(this, 'approved')">Approve</a>
+                <a href="{% url 'reject_registration' %}?registration_id={{ registration.id }}" class="reject-btn" onclick="changeActionText(this, 'rejected')">Reject</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Add your JavaScript scripts here if needed -->
+<script>
+    function changeActionText(element, status) {
+        if (status === 'approved') {
+            element.innerText = 'Approved';
+            element.classList.remove('approve-btn');
+            element.classList.add('approved-btn');
+        } else if (status === 'rejected') {
+            element.innerText = 'Rejected';
+            element.classList.remove('reject-btn');
+            element.classList.add('rejected-btn');
+        }
+    }
+</script>
+
+</body>
+</html>

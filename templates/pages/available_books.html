@@ -1,0 +1,53 @@
+{% load static %}
+<html>
+    <head>
+        <title>Available Books</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/available_books.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>student_id</th>
+                    <th>book_name</th>
+                    <th>name_of_author</th>
+                    <th>dept_name</th>
+                    <th>total</th>
+                    <th>issued_date</th>
+                    <th>submitting date</th>
+                    <th>penalty</th> <!-- Corrected typo from 'penality' to 'penalty' -->
+                    <th>action</th>
+                    <th>renewal</th> <!-- Corrected typo from 'renual' to 'renewal' -->
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for purchase in purchases %}
+                <tr>
+                    <td>{{ purchase.student_id }}</td>
+                    <td>{{ purchase.book_name }}</td>
+                    <td>{{ purchase.name_of_author }}</td>
+                    <td>{{ purchase.dept_name}}</td>
+                    <td>{{ purchase.total}}</td>
+                    <td>{{ purchase.issuedate}}</td>
+                    <td>{{ purchase.submit_date}}</td>
+                    <td>{{ purchase.penalty}}</td>
+                    <td>
+                        <form method="post" action="{% url 'submit_book' purchase.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class = "submit">Submit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'renew_book' purchase.id %}" class="renewal-form">
+                            {% csrf_token %}
+                            <button type="submit">Renew</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table> 
+    </body>
+</html>

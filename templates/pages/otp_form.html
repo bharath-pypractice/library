@@ -1,0 +1,18 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>otp form</title>
+    <link rel="stylesheet" href="{% static 'css/otp_form.css' %}">
+</head>
+<body>
+    <form method="POST" action="{% url 'otp_form' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send Otp</button>
+    </form>
+    <div class="img-container">
+        <img src="{% static 'img/otp_formbg2.jpg' %}" alt="Your Image" class="form-img">
+    </div>
+</body>
+</html>

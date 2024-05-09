@@ -1,0 +1,64 @@
+<html>
+    <head>
+            <style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                th, td {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+                th {
+                    background-color: #f2f2f2;
+                }
+            </style>
+    </head>
+<body>
+    {% comment %} <h1>Purchase Confirmation</h1>
+    <div>
+        <h1>{{ student }}</h1> 
+    </div> {% endcomment %}
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Book Name</th>
+                    <th>Name of Author</th>
+                    <th>Department Name</th>
+                    <th>Issued Date</th>
+                    <th>Submit Date</th>
+                    <th>Total</th>
+                    <th>penalty</th>
+                    {% comment %} <th>action</th> {% endcomment %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in purchases %}
+                <tr>
+                    {% if x.student_id == student %}
+                    <td>{{ x.student_id }}</td> 
+                    <td>{{ x.book_name }}</td>
+                    <td>{{ x.name_of_author }}</td>
+                    <td>{{ x.dept_name }}</td>
+                    <td>{{ x.issuedate }}</td>
+                    <td>{{ x.submit_date }}</td>
+                    <td>{{ x.total }}</td>
+                    <td>{{ x.penalty }}</td>
+                    {% comment %} <td>
+                        <form method="post" action="{% url 'submit_book' x.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Submit</button>
+                        </form>
+                    </td> {% endcomment %}
+                    {% endif %}
+
+                </tr>
+                {% endfor %}
+            </tbbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+<head>
+    <title>Student Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/studentlogin.css' %}">
+</head>
+<body>
+    <h1>Student Login</h1>
+    <form method="post" action="{% url 'student_login_url' %}">
+        {% csrf_token %}
+        <button type="submit" class="save btn btn-default sub">Login</button>
+    </form>
+</body>
+</html>

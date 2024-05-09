@@ -1,0 +1,91 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/student_dashboard.css' %}">
+    <title>Student Dashboard</title>
+</head>
+<body>
+    {% comment %} <script>
+        // Disable form submission button after submission to prevent multiple submissions
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("purchaseForm").addEventListener("submit", function() {
+                document.getElementById("submitButton").disabled = true;
+            });
+        });
+    </script> {% endcomment %}
+    <a href="{% url 'your_status' %}" class="your-status-button"><b>Your Status</b></a>    <div class="container">
+        <h1 class="mt-4">Student Dashboard</h1>
+        <div class="mt-4">
+            <h2>Student Library Book Station</h2>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Book Name</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Department Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in books %}
+                    <tr>
+                        <td style="color: white;">{{ forloop.counter }}</td>
+                        <td class="aa">{{ x.book_name }}</td>
+                        <td class="aa">{{ x.author_name }}</td>
+                        <td class="aa">{{ x.department_name }}</td>
+                        <td>
+                            <form id="purchaseForm{{ x.id }}" action="{% url 'purchase_book' x.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="count" id="count{{ x.id }}">
+                                <button type="button" class="btn btn-primary" onclick="confirmPurchase('{{ x.id }}', {{ x.count }})">borrow</button>
+                            </form>
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Your Status Link Outside the For Loop -->
+
+    </div>
+            
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script>
+        function confirmPurchase(bookId, availableCount) {
+            // Check if the book has already been borrowed in this session
+            var alreadyBorrowed = sessionStorage.getItem('borrowedBook_' + bookId);
+            if (alreadyBorrowed) {
+                {% comment %} alert("You have already borrowed this book. Please select another copy."); {% endcomment %}
+                return;
+            }
+    
+            var count = prompt("Take a single copy of the book to borrow:");
+            if (count != null) {
+                count = parseInt(count);
+                if (!isNaN(count) && count === 1) {
+                    var form = document.getElementById('purchaseForm' + bookId);
+                    var hiddenInput = document.createElement('input');
+                    hiddenInput.setAttribute('type', 'hidden');
+                    hiddenInput.setAttribute('name', 'count');
+                    hiddenInput.setAttribute('value', 1);
+                    form.appendChild(hiddenInput);
+                    
+                    // Submit the form
+                    form.submit();
+                    
+                    // Remove the session item associated with the borrowed book
+                    sessionStorage.removeItem('borrowedBook_' + bookId);
+                } else {
+                    alert("Please take only one copy of the book.");
+                }
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>
