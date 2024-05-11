@@ -1,0 +1,72 @@
+/* student_register.css */
+
+body {
+    background-image: url('../img/registration_img2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.container {
+    margin-top: 50px; 
+    max-width: 100px;
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+form {
+    background-color: #BFF8B1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin-left: -500%; 
+    margin-top: 10px; 
+    width: 380px; 
+    text-align: center;
+}
+.button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+    padding: 10px 20px; /* Add padding to the button */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Add transition effect */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+.container1 {
+    /* Styles for the container */
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f025c4;
+    padding: 20px;
+    border-radius: 10px;
+}
+.container1 h1 {
+    
+    font-family: Arial, sans-serif;
+    color: #333;
+    
+}
+.container1 a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10%;
+}
+.container1 a:hover {
+    background-color: #0056b3;
+}
+.container1 {
+    position: relative;
+    left: 20%;
+    bottom : 50%;
+}

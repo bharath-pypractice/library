@@ -1,0 +1,97 @@
+/* student_dashboard.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Reset default body margin */
+    padding: 20px; /* Add padding to body */
+    position: relative; /* Make the body a positioned container */
+}
+
+body::before {
+    content: "";
+    background-image: url('../img/studentbackgroundimg.webp'); /* Correct file extension */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px); /* Apply blur effect to the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* Table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    border: 3px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+/* Button styles */
+button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #310de6;
+}
+
+/* Form styles */
+form {
+    display: inline;
+}
+
+.your-status-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0bf813; /* Initial color */
+    color: red;
+    text-decoration: none;
+    border-radius: 5px;
+    animation: color-blink 5s infinite; /* Apply animation */
+    position: relative; 
+    margin-left: 820px; 
+    top: 17%; /* This will align the bottom of the button to the middle of its containing block */
+    transform: translateY(5%); /* Move the button downwards by 50% of its own height */
+}
+
+/* Pause the animation on hover */
+.your-status-button:hover {
+    animation-play-state: paused;
+}
+h1,h2{
+    color: white;
+}
+.rowcolor{
+    color: white;
+}
+.aa{
+    color: white;
+}

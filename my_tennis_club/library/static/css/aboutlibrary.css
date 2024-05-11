@@ -1,0 +1,102 @@
+.container {
+    position: relative;
+    text-align: center; /* Center text horizontally */
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 35%;
+    height: 50%;
+    margin-left: 58%;
+}
+
+.container h3,
+.container h2 {
+    position: absolute;
+    top: 10%; 
+    left: 60%; 
+    background-color:none; 
+    padding: 5px;
+    color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+}
+.para{
+    text-align: left;
+    margin-top: -20%;
+}
+
+.img1 {
+    text-align: center;
+    margin-top: 4.8%;
+    width: 1000px;
+    position: absolute;
+    right: 60%;
+    height: 100%;
+}
+.img2{
+    position: absolute;
+    top: 63.7%;
+    left: 10%;
+    margin-left: -100px;
+}
+.line{
+    width: 90%; /* Full width */
+    height: 319px; /* Height of the line */
+    background-color: #007bff; /* Color of the line */
+    margin: 20px 0;
+    margin-top: 6%;
+    border-radius: 10px;
+    margin-left: 6%;
+}
+.line2{
+    width: 100%; /* Full width */
+    height: 230px; /* Height of the line */
+    background-color: #ff00c8; /* Color of the line */
+    margin: 20px 0;
+    border-radius: 15px; 
+}
+.abouth1{
+    margin-right: 60%;
+}
+.aboutlist{
+    margin-left: 11%;
+    color: aliceblue;
+    font-size: 20px;
+}
+.abouth2{
+    position: absolute;
+    /* bottom:5%; */
+    bottom: -27%;
+    left: 41%;
+}
+.aboutlist2{
+    position: absolute;
+    margin-left: 38%;
+    color: aliceblue;
+    font-size: 20px;
+    bottom:-48.8%;
+}
+.abouth3{
+    position: absolute;
+    margin-left: 68%;
+    margin-top: -14.2%;
+}
+.aboutlist3{
+    position: absolute;
+    margin-left: 68%;
+    margin-top: -10%;
+    font-size: 20px;
+    color:white ;
+
+}
+body {
+    background-image: url('./img/aboutlibrary3.jpg'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    /* Optional: Fixed background */
+    background-attachment: fixed;
+}

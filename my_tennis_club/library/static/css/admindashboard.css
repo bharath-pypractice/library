@@ -1,0 +1,60 @@
+body {
+    padding: 20px;
+    background-color: #2470bc;
+}
+.navbar {
+    margin-bottom: 90px;
+    text-align: center;
+    justify-content: space-between;
+    color: white;
+
+}
+.nav-link {
+    color: #f51616;
+    font-weight: bold;
+}
+.nav-link:hover {
+    color: #f2f4f7;
+    text-align: center;
+    color: white;
+    
+}
+.container {
+    background-color: #f5f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%;
+    color: white;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+}
+h2 {
+    color: #58dc1b;
+    text-align: center;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+body::before {
+    content: "";
+    background-image: url('../img/admindashboard');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px); /* Apply blur effect to the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+.navbar {
+    background-color: rgba(36, 112, 188, 0.5) !important; /* Adjust the alpha (last) value for opacity */
+}
+.navbar-nav{
+    color: white;
+}
