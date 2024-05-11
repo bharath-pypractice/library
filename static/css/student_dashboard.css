@@ -72,7 +72,7 @@ form {
     display: inline-block;
     padding: 10px 20px;
     background-color: #0bf813; /* Initial color */
-    color: red;
+    color: pink;
     text-decoration: none;
     border-radius: 5px;
     animation: color-blink 5s infinite; /* Apply animation */
